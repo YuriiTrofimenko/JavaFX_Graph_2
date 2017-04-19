@@ -62,7 +62,7 @@ public class GraphOverviewController implements Initializable {
     public void getMas()
     {
         for (int i = 0; i < mChannelsArrayList.size(); i++) {
-            gridpane.add(new Label(""+i+1), 0, i+1);
+            gridpane.add(new Label(""+(i+1)), 0, i+1);
             CheckBox chk = new CheckBox();
             chk.setId("chb"+(i+1));
             chk.setOnAction(e->actionChangeCheckBox(e));
@@ -94,8 +94,7 @@ public class GraphOverviewController implements Initializable {
     
     public void actionChangeCheckBox(ActionEvent actionEvent) {
         CheckBox checkBox = (CheckBox) actionEvent.getSource();
-        String checkBoxIdx =
-                checkBox.getId().replace("chb", "");
+        String checkBoxIdx = checkBox.getId().replace("chb", "");
         Series currentSeries = null;
         for (Series series : mChannelLineChart.getData()) {
             if (series.getName().equals(checkBoxIdx)) {
