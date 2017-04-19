@@ -61,6 +61,7 @@ public class GraphOverviewController implements Initializable {
     
     public void getMas()
     {
+        String test;
         for (int i = 0; i < mChannelsArrayList.size(); i++) {
             gridpane.add(new Label(""+(i+1)), 0, i+1);
             CheckBox chk = new CheckBox();
