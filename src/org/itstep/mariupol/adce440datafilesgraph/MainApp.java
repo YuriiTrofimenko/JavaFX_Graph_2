@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import org.itstep.mariupol.adce440datafilesgraph.model.Channel;
 import org.itstep.mariupol.adce440datafilesgraph.view.GraphOverviewController;
@@ -24,6 +25,7 @@ import org.itstep.mariupol.adce440datafilesgraph.view.RootLayoutController;
  */
 public class MainApp extends Application {
 
+    private GridPane gridpanemenu;
     //Переменная для сцены главного окна
     private Stage mPrimaryStage;
     //Переменная для представления (графичекого контейнера) главного окна
@@ -112,7 +114,9 @@ public class MainApp extends Application {
             //Создаем эпизод на базе представления главного окна,
             //устанавливаем его в сцену главного окна и отображаем сцену
             Scene scene = new Scene(mRootLayout);
+            scene.getStylesheets().add((getClass().getResource("view/DarkTheme.css")).toExternalForm());
             mPrimaryStage.setScene(scene);
+            this.gridpanemenu=mRootLayoutController.getGridpanemenu();
             mPrimaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -131,6 +135,8 @@ public class MainApp extends Application {
             // Give the controller access to the main app.
             GraphOverviewController graphOverviewController = loader.getController(); 
             //Передача ссылки главного окна в класс RootLayoutController
+            graphOverviewController.setGridpanemenu(this.gridpanemenu);
+            graphOverviewController.setPrimaryStage(this.mPrimaryStage);
             graphOverviewController.setMainApp(this);    
             //Передача ссылки graphOverviewController в класс RootLayoutController
             mRootLayoutController.setGraphOverviewController(graphOverviewController);
