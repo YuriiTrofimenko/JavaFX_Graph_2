@@ -72,7 +72,6 @@ public class MainApp extends Application {
      */
     public static ArrayList<Channel> getChannelsData(String filePathString) {
         // Add channels data
-        System.out.println(filePathString);
         if(filePathString != null) {
             mFilePathString = filePathString;
         } else {

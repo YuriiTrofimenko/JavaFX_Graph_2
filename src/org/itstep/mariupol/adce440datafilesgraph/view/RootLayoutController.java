@@ -156,7 +156,8 @@ public class RootLayoutController implements Initializable {
     private void openFile(File file) {
 //        mChannelsArrayList = MainApp.getChannelsData(file.getAbsolutePath().toLowerCase().replace(".dat", ""));
 //        System.out.println(mChannelsArrayList.get(0).getDataItem(0));
-        String filePathString = file.getAbsolutePath().toLowerCase().replace(".dat", "");
+        // String filePathString = file.getAbsolutePath().toLowerCase().replace(".dat", "");
+        String filePathString = file.getAbsolutePath().replace(".dat", "");
         
         if(!pathFilesArrayList.contains(filePathString)){
             pathFilesArrayList.add(filePathString);
